@@ -1,0 +1,47 @@
+﻿@page "/perfile"
+
+<body class="Contentsss">
+    @if (perfil != null)
+    {
+        <div class="perfil">
+            <div class="perfil-foto">
+                <img src="wwwroot/icons/avatar.jpg" alt="Foto de perfil" class="perfil-foto" />
+            </div>
+            <div class="perfil-info">
+                <h3>@perfil.Name</h3>
+                <p>@perfil.Code</p>
+            </div>
+        </div>
+        <div class="informacion-general">
+            <h4>General</h4>
+            <div class="personal-info">
+                <p><strong>Gender:</strong> <span>@perfil.Gender</span></p>
+                <p><strong>Birthday:</strong> <span>@perfil.Birthday</span></p>
+                <p><strong>Age:</strong> <span>@perfil.Age</span></p>
+                <p><strong>Email:</strong> <span>@perfil.Email</span></p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>Cargando perfil...</p>
+    }
+</body>
+
+
+@code {
+    private Perfile perfil;
+
+    protected override void OnInitialized()
+    {
+        perfil = new Perfile
+            {
+                Name = "Xiomara Amador",
+                Code = "20040102",
+                Gender = "Female",
+                Birthday = "04-11-2002",
+                Age = 20,
+                Email = "xiomaraa@gmail.com"
+            };
+    }
+}
